@@ -16,7 +16,7 @@ def sample_images(state, num_samples):
     import pandas as pd
 
     # Read the metadata for the specified state
-    meta = pd.read_csv(f'./Metadata/{state}.csv')
+    meta = pd.read_csv(f'../metadata/{state}.csv')
 
     # Select paths for 'fake' and 'real' classes
     fake = meta[meta['label_str'] == 'fake']['path']
@@ -53,11 +53,11 @@ def plot_images(state, fake_images, real_images):
     # Plot images based on the specified state
     for x, ax in zip(range(3), [ax1, ax2, ax3]):
         if state == 'fake':
-            image = Image.open(f'./real_vs_fake/real-vs-fake/{fake_images[x]}')
+            image = Image.open(f'../real_vs_fake/real-vs-fake/{fake_images[x]}')
             ax.imshow(image)
             ax.set_title('Fake')
         elif state == 'real':
-            image = Image.open(f'./real_vs_fake/real-vs-fake/{real_images[x]}')
+            image = Image.open(f'../real_vs_fake/real-vs-fake/{real_images[x]}')
             ax.imshow(image)
             ax.set_title('Real')
         else:
