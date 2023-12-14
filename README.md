@@ -1,4 +1,4 @@
-# Face2Face_Real_vs_Fake
-LHL Capstone CNN facial recognition
-
+# DeepFaceGuard
+An attempt at CNN deepfake detection with facial images.
 Data Available from here: https://www.kaggle.com/datasets/xhlulu/140k-real-and-fake-faces/data
+
