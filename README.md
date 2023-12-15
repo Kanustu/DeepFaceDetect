@@ -9,3 +9,8 @@ In this capstone project, my goal is to achieve deepfake image detection using m
 
 In this project, our approach involves employing a variety of CNN models with the primary objective of creating an ensemble method capable of distinguishing between authentic images (real) and those generated using deepfake technology, focusing specifically on Nvidia's StyleGAN: https://github.com/NVlabs/stylegan.
 
+### Exploratory Data Analysis
+
+- Data
+  - data
+
