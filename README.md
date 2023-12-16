@@ -18,13 +18,27 @@ In this project, our approach involves employing a variety of CNN models with th
   
 ### Image Processing
 
--
+- data
+  - use imagegenerator to process images
+  - scale image data between 0 and 1 for modelling purposes
+  
 
 
 ### Model Creation
 
-
+- Model Selection
+  - Baseline
+  - VGG16
+  - Xception
+  - ResNet50
+  - Ensemble Method
 
 
 ### Model Deployment/App Creation
+
+
+## Results/Findings
+
+
+## Future Plans
 
