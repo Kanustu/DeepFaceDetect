@@ -1,5 +1,7 @@
 import streamlit as st
-
+import tensorflow as tf
+from tensorflow.keras.models import load_model
+#loaded_model = load_model('/Users/jordankanius/LHL_projects/Face2Face_Real_vs_Fake/models/ResNet50.keras')
 st.title('DeepFakeGuard: Real or Fake')
 
 
