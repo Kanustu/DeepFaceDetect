@@ -12,5 +12,19 @@ In this project, our approach involves employing a variety of CNN models with th
 ### Exploratory Data Analysis
 
 - Data
-  - data
+  - check for class imbalance
+  - check image sizes
+  - color histograms?
+  
+### Image Processing
+
+-
+
+
+### Model Creation
+
+
+
+
+### Model Deployment/App Creation
 
