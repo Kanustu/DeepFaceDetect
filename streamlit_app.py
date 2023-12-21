@@ -1,12 +1,13 @@
 import streamlit as st
 import tensorflow as tf
-from tensorflow.keras.models import load_model
-#loaded_model = load_model('/Users/jordankanius/LHL_projects/Face2Face_Real_vs_Fake/models/ResNet50.keras')
+import pickle
+import matplotlib.pyplot as plt
+import pandas as pd
+with open('/Users/jordankanius/LHL_projects/Face2Face_Real_vs_Fake/models/Resnet_history.pkl', 'rb') as f:
+    ResNet_history = pickle.load(f)
 st.title('DeepFakeGuard: Real or Fake')
 
 
-st.sidebar.title('Image Verification')
-st.sidebar.file_uploader('Upload your images')
 
 st.divider()
 
@@ -18,12 +19,13 @@ with tab1:
     col1.metric(label="Accuracy", value="90")
     col2.metric(label='Precision',value='90')
     col3.metric(label='Recall', value='90')
+
 with tab2:    
     st.header("Xception")
     col1,col2,col3 = st.columns(3)
-    col1.metric(label="Accuracy", value="90")
-    col2.metric(label='Precision',value='90')
-    col3.metric(label='Recall', value='90')
+    col1.metric(label="Accuracy", value="91")
+    col2.metric(label='Precision',value='88')
+    col3.metric(label='Recall', value='88')
     
 with tab3:
     st.header("VGG16")
@@ -33,12 +35,12 @@ with tab3:
     col3.metric(label='Recall', value='90')
 
 with tab4:
-    st.header("ResNet50")
+    st.header('ResNet50')
     col1,col2,col3 = st.columns(3)
-    col1.metric(label="Accuracy", value="90")
-    col2.metric(label='Precision',value='90')
-    col3.metric(label='Recall', value='90')
-
+    col1.metric(label="Accuracy", value="66")
+    col2.metric(label='Precision',value='66')
+    col3.metric(label='Recall', value='68')
+    
 with tab5:
     st.header("Ensemble")
     col1,col2,col3 = st.columns(3)
