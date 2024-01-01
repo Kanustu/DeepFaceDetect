@@ -38,7 +38,7 @@ with tab2:
     col4.metric(label="F-1 Score", value=88, delta=f'{88-50}*')
     st.caption('*=compared to _Baseline_')
     st.divider()
-    st.image("/Face2Face_Real_vs_Fake/confusion_tables/confusion_Xception.png")
+    st.image("/Users/jordankanius/LHL_projects/Face2Face_Real_vs_Fake/confusion_tables/confusion_Xception.png")
     st.divider()
 
 
