@@ -1,7 +1,7 @@
 import streamlit as st
 import tensorflow as tf
+import keras
 import pickle
-import matplotlib.pyplot as plt
 import pandas as pd
 st.title('DeepFakeGuard: Real or Fake')
 
