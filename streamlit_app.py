@@ -45,7 +45,7 @@ def process_image(upload, target_size):
 
     return img_array
 
-upload = st.sidebar.file_uploader("Upload an image")
+upload = st.sidebar.file_uploader("Upload image for Ensemble classification.")
 target_size = (224,224)
 
 if upload is not None:
@@ -59,8 +59,11 @@ if upload is not None:
     final_pred  = (ensemble_predictions > 0.5).astype(int)
 
     if final_pred == 1:
+        st.sidebar.image(upload)
         st.sidebar.write('Real')
+        
     else:
+        st.sidebar.image(upload)
         st.sidebar.write('Fake')
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['Baseline','Xception', 'VGG16', 'ResNet50', 'Custom','Ensemble'])
 
