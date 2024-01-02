@@ -6,8 +6,8 @@ from keras.models import load_model
 import pickle
 import pandas as pd
 st.title('DeepFakeGuard: Real or Fake')
-with open("models/Xception.pkl", "rb") as f:
-            loaded_Xception = pickle.load(f)
+#with open("models/Xception.pkl", "rb") as f:
+            #loaded_Xception = pickle.load(f)
 
 st.sidebar.file_uploader("Choose a file to upload")
 
@@ -41,7 +41,7 @@ with tab2:
     col4.metric(label="F-1 Score", value=88, delta=f'{88-50}*')
     st.caption('*=compared to _Baseline_')
     st.divider()
-    st.image("/confusion_tables/confusion_Xception.png")
+    st.image("confusion_tables/confusion_Xception.png")
     st.divider()
 
 
