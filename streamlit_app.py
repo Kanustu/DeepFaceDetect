@@ -62,12 +62,12 @@ if upload is not None:
     if final_pred == 1:
         st.sidebar.image(upload)
         st.sidebar.write('Real')
-        st.sidebar.write(ensemble_predictions)
+        
         
     else:
         st.sidebar.image(upload)
         st.sidebar.write('Fake')
-        st.sidebar.write(ensemble_predictions)
+        
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['Baseline','Xception', 'VGG16', 'ResNet50', 'Custom','Ensemble'])
 
 
