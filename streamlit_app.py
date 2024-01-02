@@ -29,9 +29,6 @@ model_list = load_models(file_paths)
 st.title('DeepFakeGuard: Real or Fake')
 
 
-upload = st.sidebar.file_uploader("Choose a file to upload")
-target_size = (224,224)
-
 def process_image(upload, target_size):
     # Open the image using PIL
     original_image = Image.open(upload)
@@ -47,20 +44,22 @@ def process_image(upload, target_size):
 
     return preprocessed_image
 
+upload = st.sidebar.file_uploader("Choose a file to upload")
+target_size = (224,224)
 upload_image = process_image(upload, target_size)
+if upload != None:
+    predictions = []
+    for model in model_list:
+        predictions.append(model.predict(upload_image))
 
-predictions = []
-for model in model_list:
-    predictions.append(model.predict(X_test))
+    ensemble_predictions = np.mean(predictions, axis=0)
 
-ensemble_predictions = np.mean(predictions, axis=0)
+    final_pred  = (ensemble_predictions > 0.5).astype(int)
 
-final_pred  = (ensemble_predictions > 0.5).astype(int)
-
-if final_pred == 1:
-    st.write('Real')
-else:
-    st.write('Fake')
+    if final_pred == 1:
+        st.write('Real')
+    else:
+        st.write('Fake')
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['Baseline','Xception', 'VGG16', 'ResNet50', 'Custom','Ensemble'])
 
 
