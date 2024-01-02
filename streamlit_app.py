@@ -34,7 +34,7 @@ target_size = (224,224)
 
 def process_image(upload, target_size):
     # Open the image using PIL
-    original_image = Image.open(image_path)
+    original_image = Image.open(upload)
 
     # Resize the image to the target size
     scaled_image = original_image.resize(target_size)
