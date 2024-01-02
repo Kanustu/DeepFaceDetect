@@ -2,10 +2,10 @@ import streamlit as st
 import tensorflow as tf
 import keras
 from keras.models import load_model
-#import pickle
+import pickle
 import pandas as pd
 
-#loaded_model=pickle.load(open("models/Xception.pkl",'rb'))
+loaded_model=pickle.load(open("models/Xception.pkl",'rb'))
 
 st.title('DeepFakeGuard: Real or Fake')
 
