@@ -7,7 +7,8 @@ import pickle
 import pandas as pd
 st.title('DeepFakeGuard: Real or Fake')
 with open("models/ResNet.pkl", "rb") as f:
-            loaded_ResNet = pickle.load(f)
+    loaded_ResNet = pickle.load(f)
+
 
 st.sidebar.file_uploader("Choose a file to upload")
 
