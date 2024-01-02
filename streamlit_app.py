@@ -2,8 +2,12 @@ import streamlit as st
 import tensorflow as tf
 import keras
 from keras.models import load_model
+from PIL import Image
+from tensorflow.keras.preprocessing import image as keras_image
 import pickle
 import pandas as pd
+
+
 def load_models(file_paths):
     models = []
     for file_path in file_paths:
@@ -12,19 +16,51 @@ def load_models(file_paths):
             models.append(model)
     return models
 
+
 file_paths = ["/mount/src/face2face_real_vs_fake/models/Xception.pkl",
              "/mount/src/face2face_real_vs_fake/models/ResNet.pkl",
              "/mount/src/face2face_real_vs_fake/models/VGG16.pkl",
              "/mount/src/face2face_real_vs_fake/models/Custom.pkl"]
 
-load_models(file_paths)
-st.write(models)
+
+model_list = load_models(file_paths)
+
+
 st.title('DeepFakeGuard: Real or Fake')
 
 
-st.sidebar.file_uploader("Choose a file to upload")
+upload = st.sidebar.file_uploader("Choose a file to upload")
+target_size = (224,224)
 
+def process_image(upload, target_size):
+    # Open the image using PIL
+    original_image = Image.open(image_path)
 
+    # Resize the image to the target size
+    scaled_image = original_image.resize(target_size)
+
+    # Convert the PIL Image to a NumPy array
+    img_array = keras_image.img_to_array(scaled_image)
+
+    # Expand the dimensions to match the input shape expected by the model
+    img_array = np.expand_dims(img_array, axis=0)
+
+    return preprocessed_image
+
+upload_image = process_image(upload, target_size)
+
+predictions = []
+for model in model_list:
+    predictions.append(model.predict(X_test))
+
+ensemble_predictions = np.mean(predictions, axis=0)
+
+final_pred  = (ensemble_predictions > 0.5).astype(int)
+
+if final_pred == 1:
+    st.write('Real')
+else:
+    st.write('Fake')
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['Baseline','Xception', 'VGG16', 'ResNet50', 'Custom','Ensemble'])
 
 
