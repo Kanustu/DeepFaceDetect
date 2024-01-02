@@ -43,7 +43,7 @@ def process_image(upload, target_size):
     # Expand the dimensions to match the input shape expected by the model
     img_array = np.expand_dims(img_array, axis=0)
 
-    return preprocessed_image
+    return img_array
 
 upload = st.sidebar.file_uploader("Upload an image")
 target_size = (224,224)
