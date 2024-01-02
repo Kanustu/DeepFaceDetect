@@ -56,7 +56,7 @@ with tab3:
     col4.metric(label="F-1 Score", value=84, delta=f'{84-50}(*)')
     st.caption('*=compared to _Baseline_')
     st.divider()
-    st.image('/Users/jordankanius/LHL_projects/Face2Face_Real_vs_Fake/confusion_VGG16.png')
+    st.image("confusion_tables/confusion_VGG16.png")
     st.divider()
 
 
@@ -72,7 +72,7 @@ with tab4:
     col4.metric(label="F-1 Score", value=66, delta=f"{66-50}(*)")
     st.caption("*=compared to _Baseline_")
     st.divider()
-    st.image('/Users/jordankanius/LHL_projects/Face2Face_Real_vs_Fake/confusion_ResNet50.png')
+    st.image("confusion_tables/confusion_ResNet50.png")
     st.divider()
 
 with tab5:
@@ -88,7 +88,7 @@ with tab5:
     col4.metric(label="F-1 Score", value=95, delta=f'{95-50}(*)')
     st.caption('*=compared to _Baseline_')
     st.divider()
-    st.image('/Users/jordankanius/LHL_projects/Face2Face_Real_vs_Fake/confusion_Custom.png')
+    st.image("confusion_tables/confusion_Custom.png")
     st.divider()
     
 with tab6:
@@ -102,5 +102,5 @@ with tab6:
     col4.metric(label="F-1 Score", value=95, delta=f'{95-50}(*)')
     st.caption('*=compared to _Baseline_')
     st.divider()
-    st.image('/Users/jordankanius/LHL_projects/Face2Face_Real_vs_Fake/confusion_Ensemble.png') 
+    st.image("confusion_tables/confusion_Ensemble.png") 
     st.divider()
