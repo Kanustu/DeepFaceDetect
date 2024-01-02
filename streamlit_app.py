@@ -1,12 +1,12 @@
 import streamlit as st
+import os
 import tensorflow as tf
 import keras
 from keras.models import load_model
 import pickle
 import pandas as pd
 st.title('DeepFakeGuard: Real or Fake')
-with open("/Users/jordankanius/LHL_projects/Face2Face_Real_vs_Fake/models/Xception.pkl", 'rb') as f:
-            Xception = pickle.load(f)
+st.write(os.getcwd())
 
 st.sidebar.file_uploader("Choose a file to upload")
 
