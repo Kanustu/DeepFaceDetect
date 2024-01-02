@@ -44,10 +44,10 @@ def process_image(upload, target_size):
 
     return preprocessed_image
 
-upload = st.sidebar.file_uploader("Choose a file to upload")
+upload = st.sidebar.file_uploader("")
 target_size = (224,224)
 upload_image = process_image(upload, target_size)
-if upload != None:
+if upload is not None:
     predictions = []
     for model in model_list:
         predictions.append(model.predict(upload_image))
