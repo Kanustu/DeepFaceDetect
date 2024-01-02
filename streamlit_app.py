@@ -5,8 +5,11 @@ import keras
 from keras.models import load_model
 import pickle
 import pandas as pd
-st.title('DeepFakeGuard: Real or Fake')
+
 loaded_model=pickle.load(open("models/Xception.pkl",'rb'))
+
+st.title('DeepFakeGuard: Real or Fake')
+
 
 st.sidebar.file_uploader("Choose a file to upload")
 
