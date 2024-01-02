@@ -1,4 +1,4 @@
-pickle
+scikit-learn
 os
 tensorflow
 keras==2.4.3
