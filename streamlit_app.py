@@ -7,6 +7,7 @@ import pickle
 import pandas as pd
 st.title('DeepFakeGuard: Real or Fake')
 st.write(os.getcwd())
+st.write('add')
 
 st.sidebar.file_uploader("Choose a file to upload")
 
