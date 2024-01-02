@@ -1,5 +1,6 @@
 import streamlit as st
 import tensorflow as tf
+import numpy as np
 import keras
 from keras.models import load_model
 from PIL import Image
