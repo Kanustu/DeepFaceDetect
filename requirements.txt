@@ -1,4 +1,4 @@
-protobuf==3.14.0
-tensorflow
+tensorflow==2.12
+tensorboard==2.12
 keras==2.4.3
 
