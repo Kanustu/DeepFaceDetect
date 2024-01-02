@@ -44,7 +44,7 @@ def process_image(upload, target_size):
 
     return preprocessed_image
 
-upload = st.sidebar.file_uploader("")
+upload = st.sidebar.file_uploader("Upload an image")
 target_size = (224,224)
 
 if upload is not None:
@@ -58,9 +58,9 @@ if upload is not None:
     final_pred  = (ensemble_predictions > 0.5).astype(int)
 
     if final_pred == 1:
-        st.write('Real')
+        st.sidebar.write('Real')
     else:
-        st.write('Fake')
+        st.sidebar.write('Fake')
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['Baseline','Xception', 'VGG16', 'ResNet50', 'Custom','Ensemble'])
 
 
