@@ -6,8 +6,8 @@ from keras.models import load_model
 import pickle
 import pandas as pd
 st.title('DeepFakeGuard: Real or Fake')
-st.write(os.getcwd())
-st.write('add')
+with open("/mount/src/face2face_real_vs_fake/models/Xception.pkl", 'rb') as f:
+            Xception = pickle.load(f)
 
 st.sidebar.file_uploader("Choose a file to upload")
 
