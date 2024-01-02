@@ -4,9 +4,21 @@ import keras
 from keras.models import load_model
 import pickle
 import pandas as pd
+def load_models(file_paths):
+    models = []
+    for file_path in file_paths:
+        with open(file_path, 'rb') as f:
+            model = pickle.load(f)
+            models.append(model)
+    return models
 
-loaded_model=pickle.load(open("models/Xception.pkl",'rb'))
+file_paths = ["/mount/src/face2face_real_vs_fake/models/Xception.pkl",
+             "/mount/src/face2face_real_vs_fake/models/ResNet.pkl",
+             "/mount/src/face2face_real_vs_fake/models/VGG16.pkl",
+             "/mount/src/face2face_real_vs_fake/models/Custom.pkl"]
 
+load_models(file_paths)
+st.write(models)
 st.title('DeepFakeGuard: Real or Fake')
 
 
