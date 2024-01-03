@@ -18,7 +18,7 @@ def load_model(file_path):
 
 
 file_path = "/mount/src/face2face_real_vs_fake/models/Custom.pkl"
-load_model(file_path)
+custom_model = load_model(file_path)
 
 st.title('DeepFakeGuard: Real or Fake')
 
@@ -44,7 +44,7 @@ target_size = (224,224)
 
 if upload is not None:
     upload_image = process_image(upload, target_size)
-    prediction = model.predict(upload_image)
+    prediction = custom_model.predict(upload_image)
 
     #ensemble_predictions = np.mean(predictions, axis=0)
 
