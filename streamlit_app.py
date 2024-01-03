@@ -39,9 +39,6 @@ def process_image(upload, target_size):
     return img_array
 
 
-upload = st.sidebar.file_uploader("Upload image for Ensemble classification.")
-target_size = (224,224)
-
 
         
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['Baseline','Xception', 'VGG16', 'ResNet50', 'Custom','Image Upload'])
