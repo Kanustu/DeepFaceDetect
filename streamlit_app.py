@@ -18,7 +18,7 @@ def load_model(file_path):
 
 
 file_path = "/mount/src/face2face_real_vs_fake/models/Custom.pkl"
-
+load_model(file_path)
 
 st.title('DeepFakeGuard: Real or Fake')
 
