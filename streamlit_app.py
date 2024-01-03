@@ -131,12 +131,12 @@ with tab6:
         final_pred  = (prediction > 0.5).astype(int)
 
         if final_pred == 1:
-            st.image(upload)
-            st.write('Real')
-            st.write(f"{prediction}")
+            st.image(upload, caption='this image has been classified as a _Real_ image')
             
             
-        else:
-            st.image(upload)
-            st.write('Fake')
-            st.write(f"{prediction}")
+            
+            
+        elif final_pred == 0:
+            st.image(upload, caption = 'This image has been classified as a _Fake_ image)
+            
+            
