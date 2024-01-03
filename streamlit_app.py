@@ -9,22 +9,18 @@ import pickle
 import pandas as pd
 
 
-def load_models(file_paths):
-    models = []
-    for file_path in file_paths:
-        with open(file_path, 'rb') as f:
-            model = pickle.load(f)
-            models.append(model)
-    return models
+def load_model(file_path):
+    with open(file_path, 'rb') as f:
+        model = pickle.load(f)
+    
+    return model
 
 
-file_paths = ["/mount/src/face2face_real_vs_fake/models/Xception.pkl",
-             "/mount/src/face2face_real_vs_fake/models/ResNet.pkl",
-             "/mount/src/face2face_real_vs_fake/models/VGG16.pkl",
-             "/mount/src/face2face_real_vs_fake/models/Custom.pkl"]
+
+file_path = "/mount/src/face2face_real_vs_fake/models/Custom.pkl"
 
 
-model_list = load_models(file_paths)
+model_list = load_models(file_path)
 
 
 st.title('DeepFakeGuard: Real or Fake')
@@ -51,13 +47,11 @@ target_size = (224,224)
 
 if upload is not None:
     upload_image = process_image(upload, target_size)
-    predictions = []
-    for model in model_list:
-        predictions.append(model.predict(upload_image))
+    prediction = model.predict(upload_image)
 
-    ensemble_predictions = np.mean(predictions, axis=0)
+    #ensemble_predictions = np.mean(predictions, axis=0)
 
-    final_pred  = (ensemble_predictions > 0.5).astype(int)
+    final_pred  = (prediction > 0.5).astype(int)
 
     if final_pred == 1:
         st.sidebar.image(upload)
@@ -153,7 +147,7 @@ with tab6:
     st.divider()
     col1,col2,col3,col4 = st.columns(4)
     col1.metric(label="Accuracy", value=95, delta=f'{95-50}(*)')
-    col2.metric(label="Precision",value=96, delta=f'{95-50}(*)')
+    col2.metric(label="Precision",value=96, delta=f'{96-50}(*)')
     col3.metric(label="Recall", value=96, delta=f'{96-50}(*)')
     col4.metric(label="F-1 Score", value=95, delta=f'{95-50}(*)')
     st.caption('*=compared to _Baseline_')
