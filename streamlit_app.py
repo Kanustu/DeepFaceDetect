@@ -21,8 +21,9 @@ file_path = "/mount/src/face2face_real_vs_fake/models/Custom.pkl"
 custom_model = load_model(file_path)
 
 st.title('DeepFakeGuard: Real or Fake')
-
-
+st.write("This project aims to differentiate between genuine images (real) and those created through deepfake technology, with a specific focus on Nvidia's StyleGAN. For further details on StyleGAN, refer to the GitHub repository: https://github.com/NVlabs/stylegan.")
+st.write("Within each tab below, you'll find a description of the respective model that was developed and tested, along with the corresponding performance metrics.")
+st.write("The Custom model, which attained the most favorable overall metrics, is currently utilized for image classification. You can interact with the model by uploading an image in jpg or png format on the final tab to the right.")
 def process_image(upload, target_size):
     # Open the image using PIL
     original_image = Image.open(upload)
@@ -132,12 +133,14 @@ with tab6:
 
         if final_pred == 1:
             st.image(upload, caption='Uploaded Image')
+            st.divider()
             st.write("\n\n")
             st.write("This upload has been classified as a _Real_ image")
             
             
         elif final_pred == 0:
             st.image(upload, caption = 'Uploaded image')
+            st.divider()
             st.write("\n\n")
             st.write("This upload has been classified as a _Fake_ image")
             
