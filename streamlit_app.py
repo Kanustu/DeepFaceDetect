@@ -122,7 +122,7 @@ with tab5:
     
 with tab6:
     st.header("Image Upload")
-    upload = st.file_uploader("Upload image for Ensemble classification.")
+    upload = st.file_uploader("Upload image(jpg,png) for classification.")
     target_size = (224,224)
 
     if upload is not None:
