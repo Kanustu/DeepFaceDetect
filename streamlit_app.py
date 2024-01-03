@@ -139,6 +139,7 @@ with tab6:
             
         elif final_pred == 0:
             st.image(upload, caption = 'Uploaded image')
-            st.caption("This image has been classified as a _Fake_ image")
+            st.write("\n\n")
+            st.write("This image has been classified as a _Fake_ image")
             
             
