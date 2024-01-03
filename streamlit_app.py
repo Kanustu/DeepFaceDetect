@@ -3,7 +3,7 @@ import tensorflow as tf
 import numpy as np
 import keras
 from keras.models import load_model
-from PIL import Image
+#from PIL import Image
 from tensorflow.keras.preprocessing import image as keras_image
 import pickle
 import pandas as pd
