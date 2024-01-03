@@ -42,24 +42,9 @@ def process_image(upload, target_size):
 upload = st.sidebar.file_uploader("Upload image for Ensemble classification.")
 target_size = (224,224)
 
-if upload is not None:
-    upload_image = process_image(upload, target_size)
-    prediction = custom_model.predict(upload_image)
 
-    #ensemble_predictions = np.mean(predictions, axis=0)
-
-    final_pred  = (prediction > 0.5).astype(int)
-
-    if final_pred == 1:
-        st.sidebar.image(upload)
-        st.sidebar.write('Real')
         
-        
-    else:
-        st.sidebar.image(upload)
-        st.sidebar.write('Fake')
-        
-tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['Baseline','Xception', 'VGG16', 'ResNet50', 'Custom','Ensemble'])
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['Baseline','Xception', 'VGG16', 'ResNet50', 'Custom','Image Upload'])
 
 
 with tab1:
@@ -139,15 +124,20 @@ with tab5:
     st.divider()
     
 with tab6:
-    st.header("Ensemble")
-    st.write("The ensemble method incorporates predictions from four distinct models: Xception, VGG16, ResNet50, and a Custom model architecture.")
-    st.divider()
-    col1,col2,col3,col4 = st.columns(4)
-    col1.metric(label="Accuracy", value=95, delta=f'{95-50}(*)')
-    col2.metric(label="Precision",value=96, delta=f'{96-50}(*)')
-    col3.metric(label="Recall", value=96, delta=f'{96-50}(*)')
-    col4.metric(label="F-1 Score", value=95, delta=f'{95-50}(*)')
-    st.caption('*=compared to _Baseline_')
-    st.divider()
-    st.image("confusion_tables/confusion_Ensemble.png") 
-    st.divider()
+    st.header("Image Upload")
+    upload = st.sidebar.file_uploader("Upload image for Ensemble classification.")
+    target_size = (224,224)
+
+    if upload is not None:
+        upload_image = process_image(upload, target_size)
+        prediction = custom_model.predict(upload_image)
+        final_pred  = (prediction > 0.5).astype(int)
+
+        if final_pred == 1:
+            st.image(upload)
+            st.write('Real')
+            
+            
+        else:
+            st.image(upload)
+            st.write('Fake')
