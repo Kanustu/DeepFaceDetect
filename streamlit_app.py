@@ -133,10 +133,10 @@ with tab6:
         if final_pred == 1:
             st.image(upload)
             st.write('Real')
-            st.write(f"{predictions}")
+            st.write(f"{prediction}")
             
             
         else:
             st.image(upload)
             st.write('Fake')
-            st.write(f"{predictions}")
+            st.write(f"{prediction}")
