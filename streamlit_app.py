@@ -21,6 +21,7 @@ file_path = "/mount/src/face2face_real_vs_fake/models/Custom.pkl"
 custom_model = load_model(file_path)
 
 st.title("DeepFaceDetect: Decoding Reality")
+st.divider()
 st.write("This project aims to differentiate between genuine images (real) and those created through deepfake technology, with a specific focus on Nvidia's StyleGAN. For further details on StyleGAN, refer to the GitHub repository: https://github.com/NVlabs/stylegan.")
 st.write("Within each tab below, you'll find a description of the respective model that was developed and tested, along with the corresponding performance metrics.")
 
@@ -126,7 +127,7 @@ with tab6:
     st.header("Image Upload")
     st.write("The Custom model, which attained the most favorable metrics, is currently utilized for image classification. You can interact with the model by uploading an image in jpg or png format.")
     st.divider()
-    upload = st.file_uploader("Upload image(jpg,png) for classification.")
+    upload = st.file_uploader("")
     target_size = (224,224)
 
     if upload is not None:
