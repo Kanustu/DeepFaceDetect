@@ -1,3 +1,4 @@
 tensorflow
 keras
 git-lfs
+PIL
