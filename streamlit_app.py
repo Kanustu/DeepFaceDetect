@@ -23,7 +23,8 @@ custom_model = load_model(file_path)
 st.title("DeepFaceDetect: Decoding Reality")
 st.write("This project aims to differentiate between genuine images (real) and those created through deepfake technology, with a specific focus on Nvidia's StyleGAN. For further details on StyleGAN, refer to the GitHub repository: https://github.com/NVlabs/stylegan.")
 st.write("Within each tab below, you'll find a description of the respective model that was developed and tested, along with the corresponding performance metrics.")
-st.write("The Custom model, which attained the most favorable overall metrics, is currently utilized for image classification. You can interact with the model by uploading an image in jpg or png format on the final tab to the right.")
+
+
 def process_image(upload, target_size):
     # Open the image using PIL
     original_image = Image.open(upload)
@@ -123,6 +124,8 @@ with tab5:
     
 with tab6:
     st.header("Image Upload")
+    st.write("The Custom model, which attained the most favorable overall metrics, is currently utilized for image classification. You can interact with the model by uploading an image in jpg or png format on the final tab to the right.")
+    st.divider()
     upload = st.file_uploader("Upload image(jpg,png) for classification.")
     target_size = (224,224)
 
