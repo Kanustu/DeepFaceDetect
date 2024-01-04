@@ -124,7 +124,7 @@ with tab5:
     
 with tab6:
     st.header("Image Upload")
-    st.write("The Custom model, which attained the most favorable overall metrics, is currently utilized for image classification. You can interact with the model by uploading an image in jpg or png format on the final tab to the right.")
+    st.write("The Custom model, which attained the most favorable metrics, is currently utilized for image classification. You can interact with the model by uploading an image in jpg or png format.")
     st.divider()
     upload = st.file_uploader("Upload image(jpg,png) for classification.")
     target_size = (224,224)
