@@ -66,21 +66,54 @@ def plot_images(state, fake_images, real_images):
     # Show the plot
     plt.show()
     
-def multi_hist_plot(df, column, axis, title):
-    import seaborn as sns
-    import matplotlib.pyplot as plt
-    fig, axes = plt.subplots(1, 3, figsize=(8, 4))
+def multi_histplot(df1, df2, df3):
     """
-    Display a histogram plot for a specified column within the DataFrame on a specified axis.
+    Plots histograms of class distribution for three DataFrames representing different sets.
 
     Parameters:
-    - df: DataFrame containing the dataset.
-    - column: Name of the column in the DataFrame 'df' to be plotted.
-    - axis: Axis on which to plot the histogram.
+    - df1 (DataFrame): The first DataFrame representing the class distribution of the training set.
+    - df2 (DataFrame): The second DataFrame representing the class distribution of the validation set.
+    - df3 (DataFrame): The third DataFrame representing the class distribution of the test set.
 
     Returns:
     - None
     """
-    sns.histplot(df, x=column, ax= axis).set(title=title)
+    import matplotlib.pyplot as plt
+    import seaborn as sns
 
+    # Create subplots
+    fig, axes = plt.subplots(1, 3, figsize=(8, 4))
+    fig.subplots_adjust(hspace=0.30, wspace=0.5)
+    fig.suptitle('Class Distribution By Set')
+
+    # List of titles for each subplot
+    title_list = ['train_set', 'valid_set', 'test_set']
+
+    # List of indices for each subplot
+    axis_list = [(0, 0), (0, 1), (0, 2)]
+
+    # List of DataFrames for each set
+    df_list = [df1, df2, df3]
+
+    # Iterate over sets and plot histograms
+    for x in range(3):
+        sns.histplot(data=df_list[x], x='label_str', ax=axes[x]).set(title=title_list[x])
+
+def multi_scatter():
+    fig, axes = plt.subplots(1, 3, figsize=(8, 4))
+    fig.subplots_adjust(hspace=0.30, wspace=0.5)
+    fig.suptitle('Image Size By Set')
+    title_list=['train_set','valid_set','test_set']
+    axis_list = [(0,0),(0,1),(0,2)]
+    x_values = [train_x, valid_x, test_x]
+    y_values = [train_y, valid_y, test_y]
+    for x in range(3):
+        sns.scatterplot(x=x_values[x], y=y_values[x],ax=axes[x]).set(title=title_list[x])
     
+def color_hist(image):
+    import numpy as np
+    import matplotlib.pyplot as plt
+    array = np.array(image)
+    for x in range(3):
+        plt.hist(array[:, :, x].ravel(), bins=256, color=f'C{x}', alpha=0.6)
+    plt.show()
