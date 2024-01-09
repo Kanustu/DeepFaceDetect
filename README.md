@@ -36,17 +36,18 @@ The dataset utilized in this project can be accessed here: https://www.kaggle.co
 
 - Model Selection
     - As I have a novice level of knowledge in this topic I used https://www.mdpi.com/2076-3417/12/19/9820 as a starting point.
-    - VGG16
-        - used the model as transfer learning method
-        - chose to freeze the layers to retain the pre-trained weights
-        - set the learning rate to 0.001 for regularization purposes
-        - set the amount of epochs to 100 as a low learning rate can lead to slower convergence
-        - used an early stopping method so if the loss did not decrease in 5 epochs it would stop training and save the best weights
-        ![alt text](convnet_fig.png "Sample")
-    - Xception
-        -
-    - ResNet50
-        -
+    - Used the following approach on the VGG16, Xception, and ResNet50 model architecture
+        - Employed transfer learning by utilizing a pre-trained model.
+        - Froze the layers to maintain the pre-trained weights and prevent unnecessary updates.
+        - Established a learning rate of 0.001 for regularization purposes, controlling the step size during optimization.
+        - Selected 100 epochs to ensure sufficient training time, considering the potential slower convergence associated with a low             learning rate.
+        - Implemented early stopping, halting training if the loss did not decrease within 5 epochs, while preserving the best weights.
+        - Structured the model architecture post pre-trained layers with:
+            - a Global Average Pooling layer to reduce dimensionality and capture important features effectively across the entire                   input
+            - a fully connected dense layer for further feature extraction and representation 
+            - a dropout layer to prevent overfitting by randomly dropping a fraction of input units during training
+            - a final fully connected dense layer for the ultimate output
+            ![alt text](pre-trained_models.drawio "Pre-trained Model Architecture")
     - Ensemble Method
         -
 
