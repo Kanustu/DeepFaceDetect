@@ -47,7 +47,7 @@ The dataset utilized in this project can be accessed here: https://www.kaggle.co
             - a fully connected dense layer for further feature extraction and representation 
             - a dropout layer to prevent overfitting by randomly dropping a fraction of input units during training
             - a final fully connected dense layer for the ultimate output
-            ![alt text](pre-trained_models.drawio "Pre-trained Model Architecture")
+            ![alt text](pre-trained_models.drawio.png "Pre-trained Model Architecture")
     - Ensemble Method
         -
 
