@@ -27,18 +27,28 @@ The dataset utilized in this project can be accessed here: https://www.kaggle.co
 ### Image Processing
 
 - data
-  - use imagegenerator to process images
-  - scale image data between 0 and 1 for modelling purposes
-  - use the horizontal flip parameter for image augmentation to help increase the models ability to generalize
+    - use imagegenerator to process images
+    - scale image data between 0 and 1 for modelling purposes
+    - use the horizontal flip parameter for image augmentation to help increase the models ability to generalize
 
 
 ### Model Creation
 
 - Model Selection
-  - VGG16
-  - Xception
-  - ResNet50
-  - Ensemble Method
+    - As I have a novice level of knowledge in this topic I used https://www.mdpi.com/2076-3417/12/19/9820 as a starting point.
+    - VGG16
+        - used the model as transfer learning method
+        - chose to freeze the layers to retain the pre-trained weights
+        - set the learning rate to 0.001 for regularization purposes
+        - set the amount of epochs to 100 as a low learning rate can lead to slower convergence
+        - used an early stopping method so if the loss did not decrease in 5 epochs it would stop training and save the best weights
+        ![alt text](convnet_fig.png "Sample")
+    - Xception
+        -
+    - ResNet50
+        -
+    - Ensemble Method
+        -
 
 
 ### Model Deployment/App Creation
