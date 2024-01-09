@@ -43,13 +43,30 @@ The dataset utilized in this project can be accessed here: https://www.kaggle.co
         - Selected 100 epochs to ensure sufficient training time, considering the potential slower convergence associated with a low             learning rate.
         - Implemented early stopping, halting training if the loss did not decrease within 5 epochs, while preserving the best weights.
         - Structured the model architecture post pre-trained layers with:
-            - a Global Average Pooling layer to reduce dimensionality and capture important features effectively across the entire                   input
-            - a fully connected dense layer for further feature extraction and representation 
-            - a dropout layer to prevent overfitting by randomly dropping a fraction of input units during training
-            - a final fully connected dense layer for the ultimate output
+            - Global Average Pooling layer to reduce dimensionality and capture important features effectively across the entire                   input
+            - fully connected dense layer for further feature extraction and representation 
+            - dropout layer to prevent overfitting by randomly dropping a fraction of input units during training
+            - final fully connected dense layer for the ultimate output
             ![alt text](pre-trained_models.drawio.png "Pre-trained Model Architecture")
-    - Ensemble Method
-        -
+    - Created a custom model with the following parameters:
+        - Conv2D Layers:
+            - conv2d_3: 32 filters with a kernel size of (3, 3), resulting in an output shape of (222, 222, 32).
+            - conv2d_4: 64 filters with a kernel size of (3, 3), resulting in an output shape of (109, 109, 64).
+            - conv2d_5: 128 filters with a kernel size of (3, 3), resulting in an output shape of (52, 52, 128).
+            - These layers are used to extract features from the input image.
+
+        - MaxPooling2D Layers:
+            - max_pooling2d_3: Max pooling with a pool size of (2, 2), reducing the spatial dimensions by half (downsampling).
+            - max_pooling2d_4: Max pooling with a pool size of (2, 2), again reducing spatial dimensions.
+            - max_pooling2d_5: Max pooling with a pool size of (2, 2).
+            - These layers perform max pooling to downsample and retain important features.
+
+        - Flatten Layer:
+            - flatten_1: Flattens the 3D output to a 1D array, preparing it for input into the fully connected layers.
+        - Dense Layers:
+            - dense_2: A fully connected dense layer with 128 neurons, performing further feature extraction.
+            - dense_3: The final dense layer with a single neuron, producing the output for binary classification (1 for positive                     class, 0 for negative class).
+            ![alt text](custom_model.drawio.png "Custom model architecture")
 
 
 ### Model Deployment/App Creation
