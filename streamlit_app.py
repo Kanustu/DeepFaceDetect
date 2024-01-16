@@ -17,7 +17,7 @@ def load_model(file_path):
 
 
 
-file_path = "/mount/src/face2face_real_vs_fake/models/Custom.pkl"
+file_path = "/mount/src/deepfacedetect/models/Custom.pkl"
 custom_model = load_model(file_path)
 
 st.title("DeepFaceDetect: Decoding Reality")
